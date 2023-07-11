@@ -4,6 +4,8 @@ import Main from "./pages/Main";
 import Products from "./pages/Products";
 import Product from "./pages/Product";
 import Layout from "./common/Layout";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 export default function App() {
   return (
@@ -12,6 +14,8 @@ export default function App() {
         <Route path="/" element={<Main />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<Product />} />
+        <Route path="Login" element={<Login />} />
+        <Route path="Signup" element={<Signup />} />
       </Route>
       <Route
         path="*"

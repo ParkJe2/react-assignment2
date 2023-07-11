@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Outlet, useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 
@@ -7,6 +8,7 @@ function Layout() {
   return (
     <St.Body>
       <St.Header>
+        {/* 페이지 이동 방법 골고루 사용해보기 위해 useNavigate 사용 */}
         <St.Logo
           onClick={() => {
             navigate("/");
@@ -20,8 +22,16 @@ function Layout() {
             gap: "12px",
           }}
         >
-          <div>로그인</div>
-          <div>회원가입</div>
+          {/* 페이지 이동 방법 골고루 사용해보기 위해 Link 사용 */}
+          <St.Link to="/Login">로그인</St.Link>
+          {/* 페이지 이동 방법 골고루 사용해보기 위해 useNavigate 사용 */}
+          <St.SignUp
+            onClick={() => {
+              navigate("/signup");
+            }}
+          >
+            회원가입
+          </St.SignUp>
         </div>
       </St.Header>
       <Outlet />
@@ -53,7 +63,13 @@ const St = {
   Logo: styled.div`
     cursor: pointer;
   `,
-
+  Link: styled(Link)`
+    text-decoration: none;
+    color: #fff;
+  `,
+  SignUp: styled.div`
+    cursor: pointer;
+  `,
   Footer: styled.footer`
     margin-top: 24px;
     display: flex;
