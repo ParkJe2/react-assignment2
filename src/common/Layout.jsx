@@ -1,7 +1,8 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 function Layout() {
+  const navigate = useNavigate();
   return (
     <div
       style={{
@@ -20,7 +21,14 @@ function Layout() {
           color: "white",
         }}
       >
-        <div>로고</div>
+        <div
+          style={{ cursor: "pointer" }}
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          로고
+        </div>
         <div
           style={{
             display: "flex",
