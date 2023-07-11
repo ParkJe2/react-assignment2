@@ -1,5 +1,6 @@
 // import React, { useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { styled } from "styled-components";
 
 export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -10,12 +11,7 @@ export default function Products() {
   // }, [searchParams])
   return (
     <>
-      <div
-        style={{
-          marginTop: "56px",
-          textAlign: "center",
-        }}
-      >
+      <St.List>
         <h2>🔥 여름 추천템 🔥</h2>
         <button
           onClick={() => {
@@ -26,48 +22,35 @@ export default function Products() {
         >
           가격순으로 정렬
         </button>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "24px",
-          }}
-        >
+        <St.ListBox>
           <Link to="/products/1">
-            <div
-              style={{
-                width: "200px",
-                height: "240px",
-                backgroundColor: "#068FFF",
-              }}
-            >
-              상품1
-            </div>
+            <St.ListItem>상품1</St.ListItem>
           </Link>
           <Link to="/products/2">
-            <div
-              style={{
-                width: "200px",
-                height: "240px",
-                backgroundColor: "#068FFF",
-              }}
-            >
-              상품2
-            </div>
+            <St.ListItem>상품2</St.ListItem>
           </Link>
           <Link to="/products/3">
-            <div
-              style={{
-                width: "200px",
-                height: "240px",
-                backgroundColor: "#068FFF",
-              }}
-            >
-              상품3
-            </div>
+            <St.ListItem>상품3</St.ListItem>
           </Link>
-        </div>
-      </div>
+        </St.ListBox>
+      </St.List>
     </>
   );
 }
+
+const St = {
+  List: styled.section`
+    margin-top: 56px;
+    text-align: center;
+  `,
+  ListBox: styled.div`
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+  `,
+  ListItem: styled.div`
+    width: 200px;
+    height: 240px;
+    background-color: #068fff;
+  `,
+};

@@ -1,34 +1,19 @@
 import React from "react";
 import { Outlet, useNavigate } from "react-router-dom";
+import { styled } from "styled-components";
 
 function Layout() {
   const navigate = useNavigate();
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        position: "relative",
-        paddingBottom: "90px",
-        boxSizing: "border-box",
-      }}
-    >
-      <header
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          padding: "24px",
-          backgroundColor: "#000000",
-          color: "white",
-        }}
-      >
-        <div
-          style={{ cursor: "pointer" }}
+    <St.Body>
+      <St.Header>
+        <St.Logo
           onClick={() => {
             navigate("/");
           }}
         >
           로고
-        </div>
+        </St.Logo>
         <div
           style={{
             display: "flex",
@@ -38,27 +23,47 @@ function Layout() {
           <div>로그인</div>
           <div>회원가입</div>
         </div>
-      </header>
+      </St.Header>
       <Outlet />
-      <footer
-        style={{
-          marginTop: "24px",
-          display: "flex",
-          justifyContent: "space-between",
-          padding: "24px",
-          backgroundColor: "#EEEEEE",
-          color: "black",
-          position: "absolute",
-          bottom: 0,
-          width: "100%",
-          boxSizing: "border-box",
-        }}
-      >
+      <St.Footer>
         <div>문의하기</div>
         <div>SNS 채널들</div>
-      </footer>
-    </div>
+      </St.Footer>
+    </St.Body>
   );
 }
 
 export default Layout;
+
+const St = {
+  Body: styled.div`
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 90px;
+    box-sizing: border-box;
+  `,
+
+  Header: styled.header`
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+    background-color: #000000;
+    color: white;
+  `,
+  Logo: styled.div`
+    cursor: pointer;
+  `,
+
+  Footer: styled.footer`
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+    background-color: #eeeeee;
+    color: black;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+  `,
+};
