@@ -16,12 +16,7 @@ function Layout() {
         >
           로고
         </St.Logo>
-        <div
-          style={{
-            display: "flex",
-            gap: "12px",
-          }}
-        >
+        <St.HeaderContent>
           {/* 페이지 이동 방법 골고루 사용해보기 위해 Link 사용 */}
           <St.Link to="/Login">로그인</St.Link>
           {/* 페이지 이동 방법 골고루 사용해보기 위해 useNavigate 사용 */}
@@ -32,7 +27,7 @@ function Layout() {
           >
             회원가입
           </St.SignUp>
-        </div>
+        </St.HeaderContent>
       </St.Header>
       <Outlet />
       <St.Footer>
@@ -62,6 +57,11 @@ const St = {
   `,
   Logo: styled.div`
     cursor: pointer;
+  `,
+
+  HeaderContent: styled.div`
+    display: flex;
+    gap: 12px;
   `,
   Link: styled(Link)`
     text-decoration: none;
