@@ -1,8 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
-export default function Main({ items }) {
+export default function Main() {
+  const products = useSelector((state) => state.products);
   return (
     <main>
       {/* 케러셀 */}
@@ -14,7 +16,7 @@ export default function Main({ items }) {
           <St.ViewMoreButton>더보기</St.ViewMoreButton>
         </Link>
         <St.ListBox>
-          {items.map((item) => (
+          {products.map((item) => (
             <St.FirstListItem key={item.id}>
               <St.ItemContents>{item.name}</St.ItemContents>
               <St.ItemContents>{item.price}원</St.ItemContents>
